@@ -123,10 +123,19 @@
 
 ## 简述内部类及其作用 <a href="#jian-shu-nei-bu-lei-ji-qi-zuo-yong" id="jian-shu-nei-bu-lei-ji-qi-zuo-yong"></a>
 
-* **成员内部类**：作为成员对象的内部类。可以访问 private 及以上外部类的属性和方法。外部类想要访问内部类属性或方法时，必须要创建一个内部类对象，然后通过该对象访问内部类的属性或方法。外部类也可访问 private 修饰的内部类属性。
+内部类根据不同的定义方式，可分为静态内部类、成员内部类、局部内部类和匿名内部类这4种。
+
+* **静态内部类**：定义在类内部的静态类被称为静态内部类。
+  * 静态内部类可以访问外部类的静态变量和方法。
+  * 在静态内部类中可以定义静态变量、方法、构造函数等。
+  * 静态内部类通过“外部类.静态内部类”的方式来调用。
+* **成员内部类**：定义在类内部的非静态类叫作成员内部类。
+  * 成员内部类不能定义静态方法和变量（final修饰的除外）。
+  * 可以访问外部类的私有属性和方法。
+  * 外部类想要访问内部类属性或方法时，必须要创建一个内部类对象，然后通过该对象访问内部类的属性或方法。
+  * 外部类也可访问 private 修饰的内部类属性。
 * **局部内部类**：存在于方法中的内部类。访问权限类似局部变量，只能访问外部类的 final 变量。
 * **匿名内部类**：只能使用一次，没有类名，只能访问外部类的 final 变量。
-* **静态内部类**：类似类的静态成员变量。
 
 ## Java 语言中关键字 static 的作用是什么？ <a href="#java-yu-yan-zhong-guan-jian-zi-static-de-zuo-yong-shi-shen-me" id="java-yu-yan-zhong-guan-jian-zi-static-de-zuo-yong-shi-shen-me"></a>
 
@@ -200,3 +209,97 @@ throws 一般用于方法声明上，代表该方法可能会抛出的异常列�
 * finalize 是 Object 类的一个方法，在垃圾收集器执行的时候会调用被回收对象的 finalize()方法。当垃圾回收器准备好释放对象占用的内存空间时，首先会调用 finalize()方法，并在下一次垃圾回收动作发生时真正回收对象占用的内存。
 
 ## 简述泛型 <a href="#jian-shu-fan-xing" id="jian-shu-fan-xing"></a>
+
+泛型的本质是参数化类型，泛型提供了编译时类型的安全检测机制，该机制允许程序在编译时检测非法的类型。
+
+## 简述泛型擦除 <a href="#jian-shu-fan-xing-ca-chu" id="jian-shu-fan-xing-ca-chu"></a>
+
+在编码阶段采用泛型时加上的类型参数，会被编译器在编译时去掉，这个过程就被称为类型擦除。因此，泛型主要用于编译阶段。在编译后生成的Java字节代码文件中不包含泛型中的类型信息。
+
+Java类型的擦除过程为：首先，查找用来替换类型参数的具体类（该具体类一般为Object），如果指定了类型参数的上界，则以该上界作为替换时的具体类；然后，把代码中的类型参数都替换为具体的类。
+
+## 简述注解 <a href="#jian-shu-zhu-jie" id="jian-shu-zhu-jie"></a>
+
+注解（Annotation）是Java提供的，用于设置程序中元素的关联信息和元数据（MetaData）的方法，它是一个接口，程序可以通过**反射**获取指定程序中元素的注解对象，然后通过该注解对象获取注解中的元数据信息。
+
+## 简述元注解 <a href="#jian-shu-yuan-zhu-jie" id="jian-shu-yuan-zhu-jie"></a>
+
+元注解可以理解为注解的注解，即在注解中使用，实现想要的功能。其具体分为：
+
+* @Retention定义了该注解被保留的级别，即被描述的注解在什么级别有效，有以下3种类型。
+  * SOURCE：在源文件中有效，即在源文件中被保留。
+  * CLASS：在Class文件中有效，即在Class文件中被保留。
+  * RUNTIME：在运行时有效，即在运行时被保留。
+* @Target说明了注解所修饰的对象范围。注解可被用于packages、types（类、接口、枚举、注解类型）、类型成员（方法、构造器、成员变量、枚举值）、方法参数和本地变量（循环变量、catch参数等）
+* @Documented表明这个注解应该被javadoc工具记录。
+* @Inherited是一个标记注解，表明某个被标注的类型是被继承的。如果有一个使用了@Inherited修饰的Annotation被用于一个Class，则这个注解将被用于该Class的子类。
+* @Repeatable表明注解可以同时作用一个对象多次，而且每次注解可以代表不同的含义。
+
+## 注解处理器
+
+注解用于描述程序中元素的关联信息和元数据（MetaData），使用的重点在于对注解处理器的定义。对注解的使用一般包含定义及使用注解接口，我们一般通过封装统一的注解工具来使用注解。
+
+## 简述 Java 中 Class 对象 <a href="#jian-shu-java-zhong-class-dui-xiang" id="jian-shu-java-zhong-class-dui-xiang"></a>
+
+java 中对象可以分为实例对象和 Class 对象，每一个类都有一个 Class 对象，其包含了与该类有关的信息。
+
+获取 Class 对象的方法：
+
+```java
+Class.forName(“类的全限定名”)
+实例对象.getClass()
+类名.class
+```
+
+#### Java 反射机制是什么？ <a href="#java-fan-she-ji-zhi-shi-shen-me" id="java-fan-she-ji-zhi-shi-shen-me"></a>
+
+反射机制指在程序运行过程中，对任意一个类都能获取其所有属性和方法，并且对任意一个对象都能调用其任意一个方法。这种动态获取类和对象的信息，以及动态调用对象的方法的功能被称为Java语言的反射机制。
+
+## 序列化是什么？ <a href="#xu-lie-hua-shi-shen-me" id="xu-lie-hua-shi-shen-me"></a>
+
+序列化是一种将Java对象转换成二进制字节流的过程。
+
+## 简述 Java 的 List <a href="#jian-shu-java-de-list" id="jian-shu-java-de-list"></a>
+
+List 是一个有序队列，在 Java 中有两种实现方式:
+
+* ArrayList 基于**数组**，存储空间是连续的；LinkedList 基于**链表**，存储空间是不连续的。（LinkedList 是双向链表）
+* 对于**随机访问** get 和 set ，ArrayList 要优于 LinkedList；而对于**新增和删除**操作 add 和 remove ，LinkedList 则要优于 ArrayList。
+
+#### 简述 Java 的 Set <a href="#jian-shu-java-de-set" id="jian-shu-java-de-set"></a>
+
+Set 继承于 Collection 接口，表示一个**不允许出现重复元素，并且无序的集合**。Java 中存在三种Set实现：
+
+* HashSet 通过 HashMap 实现，HashMap 的 Key 即 HashSet 存储的元素。判断元素是否相同时，先比较 hashCode，如果hashCode 在 调用 equals 方法进行比较，查询 O(1)。
+* LinkedHashSet 继承自 HashSet，通过 LinkedHashMap 实现，使用双向链表维护元素插入顺序。
+* TreeSet 通过 TreeMap 实现的，底层数据结构是红黑树，添加元素到集合时按照比较规则将其插入到合适的位置，保证插入后的集合仍然有序。查询 O(logn)
+
+#### 为何 HashMap 线程不安全 <a href="#wei-he-hashmap-xian-cheng-bu-an-quan" id="wei-he-hashmap-xian-cheng-bu-an-quan"></a>
+
+* HashMap 是一个可变对象
+* HashMap 中内部具有多个成员变量，对象具备多种状态，并且内部并没有设置同步策略来控制状态的变化
+* 因为没有任何同步措施，HashMap 甚至不能保证内存可见性
+
+> 在 JDK1.7 中，HashMap 采用头插法插入元素，因此并发情况下会导致环形链表，产生死循环。
+>
+> 虽然 JDK1.8 采用了尾插法解决了这个问题，但是并发下的 put 操作也会使前一个 key 被后一个 key 覆盖。
+>
+> 由于 HashMap 有扩容机制存在，也存在 A 线程进行扩容后，B 线程执行 get 方法出现失误的情况。
+
+## 简述 Java 的 TreeMap <a href="#jian-shu-java-de-treemap" id="jian-shu-java-de-treemap"></a>
+
+TreeMap 是底层利用红黑树实现的 Map 结构，底层实现是一棵平衡的排序二叉树，由于红黑树的插入、删除、查找的时间复杂度都为 O(logN)，所以性能上低于哈希表。但是哈希表无法提供键值对的有序输出，红黑树可以按照键值的大小顺序进行遍历。
+
+## 如何决定使用 HashMap 还是 TreeMap? <a href="#ru-he-jue-ding-shi-yong-hashmap-hai-shi-treemap" id="ru-he-jue-ding-shi-yong-hashmap-hai-shi-treemap"></a>
+
+只有确实存在”需要按照key的大小顺序依次遍历一个Map“时，才应该使用TreeMap，否则其他情况均应使用HashMap。
+
+## fail-fast 和 fail-safe 迭代器的区别是什么？ <a href="#failfast-he-failsafe-die-dai-qi-de-qu-bie-shi-shen-me" id="failfast-he-failsafe-die-dai-qi-de-qu-bie-shi-shen-me"></a>
+
+* fail-fast 直接在容器上进行遍历，在遍历过程中，一旦发现容器中的数据被修改，就会立刻抛出 ConcurrentModificationException 异常从而导致遍历失败。常见的使用 fail-fast 方式的容器有 HashMap 和 ArrayList 等。
+* fail-safe 这种遍历基于容器的一个克隆。因此对容器中的内容修改不影响遍历。常见的使用 fail-safe 方式遍历的容器有 CopyOnWriteArrayList。
+
+## Collection 和 Collections 有什么区别？ <a href="#collection-he-collections-you-shen-me-qu-bie" id="collection-he-collections-you-shen-me-qu-bie"></a>
+
+* Collection 是一个接口，它提供了对集合对象进行基本操作的通用接口方法，所有集合都是它的子类，比如 List、Set 等。
+* Collections 是一个工具类，包含了很多静态方法、不能被实例化。该类是Collection的工具集，包含许多十分有用的方法。
