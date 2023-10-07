@@ -1,4 +1,5 @@
 # Table of contents
 
-* [Java 基础八股文](README.md)
-* [java虚拟机](java-xu-ni-ji.md)
+* [面试](README.md)
+  * [Java 基础八股文](review/base-questions.md)
+  * [java虚拟机](review/jvm-questions.md)
