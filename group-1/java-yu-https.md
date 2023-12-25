@@ -61,7 +61,7 @@ Process finished with exit code 0
 2.  然后，将下载下来的SSL证书导入到Java信任库，可以使用 **keytool** 命令来导入证书：
 
     ```properties
-    keytool -import -alias -aliasName -file server.crt -keystore cacerts
+    keytool -import -alias keycloak -file server.pem -keystore cacerts
     ```
 
     将**server.crt**替换为服务器证书的实际文件名。默认情况下，**cacerts**位于Java安装目录的**lib/security目录中。**
