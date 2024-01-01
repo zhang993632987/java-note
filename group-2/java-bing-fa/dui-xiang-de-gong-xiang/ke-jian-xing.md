@@ -8,9 +8,9 @@
 
 ## 加锁与可见性
 
-
-
 **加锁的含义不仅局限于互斥行为，还包括内存可见性。**
+
+<figure><img src="../../../.gitbook/assets/epub_39980425_15.jpg" alt=""><figcaption></figcaption></figure>
 
 ## volatile 变量
 
@@ -41,4 +41,3 @@
 > 当线程在没有同步的情况下读取变量时，可能会得到一个失效值，但至少这个值是由之前某个线程设置的值，而不是一个随机值。这种安全性保证被称为**最低安全性（out-of-the-thin-air safety）**
 
 最低安全性适用于绝大多数变量，但存在一个例外：非 volatile 类型的 64 位数值变量（double 和 long）。Java 内存模型要求，变量的读取操作和写入操作都必须是原子操作，但对于非 volatile 类型的 long 和 double 变量，JVM 允许将 64 位的读操作和写操作分解为两个 32 位的操作。
-
