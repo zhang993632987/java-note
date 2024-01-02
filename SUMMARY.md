@@ -10,6 +10,7 @@
     * [线程封闭](group-2/java-bing-fa/dui-xiang-de-gong-xiang/xian-cheng-feng-bi.md)
     * [不可变性](group-2/java-bing-fa/dui-xiang-de-gong-xiang/bu-ke-bian-xing.md)
     * [安全发布](group-2/java-bing-fa/dui-xiang-de-gong-xiang/an-quan-fa-bu.md)
+  * [在现有的线程安全类中添加功能](group-2/java-bing-fa/zai-xian-you-de-xian-cheng-an-quan-lei-zhong-tian-jia-gong-neng.md)
 
 ***
 
