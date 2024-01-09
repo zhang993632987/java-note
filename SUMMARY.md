@@ -27,6 +27,10 @@
     * [CompletionService](group-2/java-bing-fa/xian-cheng-chi/completionservice.md)
     * [设置线程池的大小](group-2/java-bing-fa/xian-cheng-chi/she-zhi-xian-cheng-chi-de-da-xiao.md)
     * [ThreadPoolExecutor](group-2/java-bing-fa/xian-cheng-chi/threadpoolexecutor.md)
+  * [任务取消](group-2/java-bing-fa/ren-wu-qu-xiao/README.md)
+    * [自定义的取消标志](group-2/java-bing-fa/ren-wu-qu-xiao/zi-ding-yi-de-qu-xiao-biao-zhi.md)
+    * [线程中断](group-2/java-bing-fa/ren-wu-qu-xiao/xian-cheng-zhong-duan.md)
+    * [通过Future来实现取消](group-2/java-bing-fa/ren-wu-qu-xiao/tong-guo-future-lai-shi-xian-qu-xiao.md)
 
 ***
 
