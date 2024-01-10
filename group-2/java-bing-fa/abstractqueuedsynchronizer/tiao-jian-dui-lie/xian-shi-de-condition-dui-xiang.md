@@ -1,0 +1,78 @@
+# 显式的Condition对象
+
+正如Lock是一种广义的内置锁，Condition也是一种广义的内置条件队列。
+
+一个Condition和一个Lock关联在一起，就像一个条件队列和一个内置锁相关联一样。**要创建一个Condition，可以在相关联的Lock上调用**<mark style="color:blue;">**Lock.newCondition**</mark>**方法。**正如Lock比内置加锁提供了更为丰富的功能，Condition同样比内置条件队列提供了更丰富的功能：在每个锁上可存在多个等待、条件等待可以是可中断的或不可中断的、基于时限的等待，以及公平的或非公平的队列操作。
+
+<mark style="color:blue;">**与内置条件队列不同的是，对于每个Lock，可以有任意数量的Condition对象。**</mark>Condition对象继承了相关的Lock对象的公平性，对于公平的锁，线程会依照FIFO顺序从Condition.await中释放。
+
+<mark style="color:blue;">**在Condition对象中，与wait、notify和notifyAll方法对应的分别是await、signal和signalAll。**</mark>
+
+<details>
+
+<summary><mark style="color:purple;">示例：使用显示条件变量的有界缓存</mark></summary>
+
+```java
+public class ConditionBoundedBuffer<T> {
+
+    private final T[] buffer;
+    private int tail, head, count;
+
+    private final Lock lock = new ReentrantLock();
+    private final Condition notFull = lock.newCondition();
+    private final Condition notEmpty = lock.newCondition();
+
+    public ConditionBoundedBuffer(int size) {
+        this.buffer = (T[]) new Object[size];
+    }
+
+    public void put(T e) throws InterruptedException {
+        try {
+            lock.lock();
+            while (isFull())
+                notFull.await();
+            putInternal(e);
+            notEmpty.signal();
+        } finally {
+            lock.unlock();
+        }
+    }
+
+    public T take() throws InterruptedException {
+        try {
+            lock.lock();
+            while (isEmpty())
+                notEmpty.await();
+            T result = takeInternal();
+            notFull.signal();
+            return result;
+        } finally {
+            lock.unlock();
+        }
+    }
+
+    private void putInternal(T e) {
+        buffer[tail] = e;
+        count++;
+        tail = (tail + 1) % buffer.length;
+    }
+
+    private T takeInternal() {
+        T result = buffer[head];
+        buffer[head] = null;
+        count--;
+        head = (head + 1) % buffer.length;
+        return result;
+    }
+
+    private boolean isFull() {
+        return count >= buffer.length;
+    }
+
+    private boolean isEmpty() {
+        return count <= 0;
+    }
+}
+```
+
+</details>
