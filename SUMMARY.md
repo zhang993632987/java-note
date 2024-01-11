@@ -31,10 +31,15 @@
     * [自定义的取消标志](group-2/java-bing-fa/ren-wu-qu-xiao/zi-ding-yi-de-qu-xiao-biao-zhi.md)
     * [线程中断](group-2/java-bing-fa/ren-wu-qu-xiao/xian-cheng-zhong-duan.md)
     * [通过Future来实现取消](group-2/java-bing-fa/ren-wu-qu-xiao/tong-guo-future-lai-shi-xian-qu-xiao.md)
-  * [AbstractQueuedSynchronizer](group-2/java-bing-fa/abstractqueuedsynchronizer/README.md)
-    * [条件队列](group-2/java-bing-fa/abstractqueuedsynchronizer/tiao-jian-dui-lie/README.md)
-      * [内置条件队列](group-2/java-bing-fa/abstractqueuedsynchronizer/tiao-jian-dui-lie/nei-zhi-tiao-jian-dui-lie.md)
-      * [显式的Condition对象](group-2/java-bing-fa/abstractqueuedsynchronizer/tiao-jian-dui-lie/xian-shi-de-condition-dui-xiang.md)
+  * [条件队列](group-2/java-bing-fa/tiao-jian-dui-lie/README.md)
+    * [内置条件队列](group-2/java-bing-fa/tiao-jian-dui-lie/nei-zhi-tiao-jian-dui-lie.md)
+    * [显式的Condition对象](group-2/java-bing-fa/tiao-jian-dui-lie/xian-shi-de-condition-dui-xiang.md)
+  * [JUC中的AQS](group-2/java-bing-fa/juc-zhong-de-aqs/README.md)
+    * [AbstractQueuedSynchronizer](group-2/java-bing-fa/juc-zhong-de-aqs/abstractqueuedsynchronizer.md)
+    * [ReentrantLock](group-2/java-bing-fa/juc-zhong-de-aqs/reentrantlock.md)
+    * [CountDownLatch](group-2/java-bing-fa/juc-zhong-de-aqs/countdownlatch.md)
+    * [ReentrantReadWriteLock](group-2/java-bing-fa/juc-zhong-de-aqs/reentrantreadwritelock.md)
+    * [Semaphore](group-2/java-bing-fa/juc-zhong-de-aqs/semaphore.md)
 
 ***
 
