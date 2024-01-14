@@ -11,7 +11,7 @@ read(file, tmp_buf, len);
 write(socket, tmp_buf, len);
 ```
 
-
+<figure><img src="../.gitbook/assets/java-io-copy-3.png" alt=""><figcaption></figcaption></figure>
 
 1.  <mark style="color:blue;">**共发生了 4 次用户态与内核态的上下文切换：**</mark>因为发生了两次系统调用，一次是 read() ，一次是 write()，**每次系统调用都得先从用户态切换到内核态，等内核完成任务后，再从内核态切换回用户态。**
 
@@ -37,7 +37,7 @@ write(sockfd, buf, len);
 
 <mark style="color:blue;">**mmap() 系统调用函数会直接把内核缓冲区里的数据「映射」到用户空间**</mark>，这样，**操作系统内核与用户空间就不需要再进行任何的数据拷贝操作。**
 
-
+<figure><img src="../.gitbook/assets/java-io-copy-4.png" alt=""><figcaption></figcaption></figure>
 
 具体过程如下：
 
@@ -63,7 +63,7 @@ ssize_t sendfile(int out_fd, int in_fd, off_t *offset, size_t count);
 
 如下图：
 
-
+<figure><img src="../.gitbook/assets/java-io-copy-5.png" alt=""><figcaption></figcaption></figure>
 
 但是这还不是真正的零拷贝技术，<mark style="color:blue;">**如果网卡支持 SG-DMA（The Scatter-Gather Direct Memory Access）技术**</mark>（和普通的 DMA 有所不同），<mark style="color:blue;">**可以进一步减少通过 CPU 把内核缓冲区里的数据拷贝到 socket 缓冲区的过程。**</mark>
 
@@ -81,6 +81,6 @@ ssize_t sendfile(int out_fd, int in_fd, off_t *offset, size_t count);
 
 所以，**在这个过程之中，只进行了 2 次数据拷贝**，如下图：
 
-
+<figure><img src="../.gitbook/assets/java-io-copy-6.png" alt=""><figcaption></figcaption></figure>
 
 零拷贝技术的文件传输方式相比传统文件传输的方式，<mark style="color:blue;">**减少了 2 次上下文切换和数据拷贝次数，只需要 2 次上下文切换和数据拷贝次数，就可以完成文件的传输，而且 2 次的数据拷贝过程，都不需要通过 CPU，2 次都是由 DMA 来搬运**</mark><mark style="color:blue;">。</mark>

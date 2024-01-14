@@ -13,7 +13,7 @@
   * [Java 容器](ji-chu-zhi-shi/java-ji-chu/java-rong-qi.md)
 * [Java IO](ji-chu-zhi-shi/java-io/README.md)
   * [基础IO](ji-chu-zhi-shi/java-io/ji-chu-io.md)
-  * [Page 2](ji-chu-zhi-shi/java-io/page-2.md)
+  * [NIO](ji-chu-zhi-shi/java-io/nio.md)
 * [Java 并发](ji-chu-zhi-shi/java-bing-fa/README.md)
   * [线程安全性](ji-chu-zhi-shi/java-bing-fa/xian-cheng-an-quan-xing.md)
   * [对象的共享](ji-chu-zhi-shi/java-bing-fa/dui-xiang-de-gong-xiang/README.md)
