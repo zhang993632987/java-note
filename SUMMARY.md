@@ -51,6 +51,14 @@
     * [CountDownLatch](ji-chu-zhi-shi/java-bing-fa/juc-zhong-de-aqs/countdownlatch.md)
     * [ReentrantReadWriteLock](ji-chu-zhi-shi/java-bing-fa/juc-zhong-de-aqs/reentrantreadwritelock.md)
     * [Semaphore](ji-chu-zhi-shi/java-bing-fa/juc-zhong-de-aqs/semaphore.md)
+* [Java 虚拟机](ji-chu-zhi-shi/java-xu-ni-ji/README.md)
+  * [JVM 的运行机制](ji-chu-zhi-shi/java-xu-ni-ji/jvm-de-yun-hang-ji-zhi.md)
+  * [类加载器](ji-chu-zhi-shi/java-xu-ni-ji/lei-jia-zai-qi.md)
+  * [运行时数据区](ji-chu-zhi-shi/java-xu-ni-ji/yun-hang-shi-shu-ju-qu/README.md)
+    * [JVM的内存区域](ji-chu-zhi-shi/java-xu-ni-ji/yun-hang-shi-shu-ju-qu/jvm-de-nei-cun-qu-yu.md)
+    * [永久代与元空间](ji-chu-zhi-shi/java-xu-ni-ji/yun-hang-shi-shu-ju-qu/yong-jiu-dai-yu-yuan-kong-jian.md)
+  * [Java 中的 4 种引用类型](ji-chu-zhi-shi/java-xu-ni-ji/java-zhong-de-4-zhong-yin-yong-lei-xing.md)
+  * [垃圾收集（GC）](ji-chu-zhi-shi/java-xu-ni-ji/la-ji-shou-ji-gc.md)
 
 ***
 
@@ -73,4 +81,5 @@
   * [移位运算符](group-1/ji-chu-bu-chong/yi-wei-yun-suan-fu.md)
   * [SPI机制](group-1/ji-chu-bu-chong/spi-ji-zhi.md)
   * [为何 HashMap 不是线程安全的](group-1/ji-chu-bu-chong/wei-he-hashmap-bu-shi-xian-cheng-an-quan-de.md)
+  * [Class.forName()和ClassLoader.loadClass()区别](group-1/ji-chu-bu-chong/class.forname-he-classloader.loadclass-qu-bie.md)
 * [零拷贝](group-1/ling-kao-bei.md)
