@@ -57,15 +57,12 @@
   * [运行时数据区](ji-chu-zhi-shi/java-xu-ni-ji/yun-hang-shi-shu-ju-qu/README.md)
     * [JVM的内存区域](ji-chu-zhi-shi/java-xu-ni-ji/yun-hang-shi-shu-ju-qu/jvm-de-nei-cun-qu-yu.md)
     * [永久代与元空间](ji-chu-zhi-shi/java-xu-ni-ji/yun-hang-shi-shu-ju-qu/yong-jiu-dai-yu-yuan-kong-jian.md)
+    * [OutOfMemoryError](ji-chu-zhi-shi/java-xu-ni-ji/yun-hang-shi-shu-ju-qu/outofmemoryerror.md)
   * [Java 中的 4 种引用类型](ji-chu-zhi-shi/java-xu-ni-ji/java-zhong-de-4-zhong-yin-yong-lei-xing.md)
-  * [垃圾收集（GC）](ji-chu-zhi-shi/java-xu-ni-ji/la-ji-shou-ji-gc.md)
-
-***
-
-* [面试](<README (1).md>)
-  * [Java 基础八股文](review/base-questions.md)
-  * [java虚拟机](review/jvm-questions.md)
-  * [Page 1](review/page-1.md)
+  * [垃圾收集（GC）](ji-chu-zhi-shi/java-xu-ni-ji/la-ji-shou-ji-gc/README.md)
+    * [如何确定垃圾](ji-chu-zhi-shi/java-xu-ni-ji/la-ji-shou-ji-gc/ru-he-que-ding-la-ji.md)
+    * [垃圾回收算法](ji-chu-zhi-shi/java-xu-ni-ji/la-ji-shou-ji-gc/la-ji-hui-shou-suan-fa.md)
+    * [垃圾收集器](ji-chu-zhi-shi/java-xu-ni-ji/la-ji-shou-ji-gc/la-ji-shou-ji-qi.md)
 
 ## Group 1
 

@@ -18,6 +18,8 @@ public class StringStore {
 
 这段代码在 JDK 1.6 中运行，会得到两个 false，而在 JDK 1.7 中运行，会得到一个 true 和一个 false。
 
+> **String::intern()** 是一个本地方法，它**的作用是如果字符串常量池中已经包含一个等于此 String 对象的字符串，则返回代表池中这个字符串的 String 对象的引用；否则，会将此 String 对象包含的字符串添加到常量池中，并且返回此 String 对象的引用。**
+
 产生差异的原因是：
 
 * **在 JDK 1.6 中，intern() 方法会把首次遇到的字符串实例复制到永久代中，返回的也是永久代中这个字符串实例的引用**，而由 StringBuilder 创建的字符串实例在 Java 堆上，所以必然不是同一个引用，将返回 false。
