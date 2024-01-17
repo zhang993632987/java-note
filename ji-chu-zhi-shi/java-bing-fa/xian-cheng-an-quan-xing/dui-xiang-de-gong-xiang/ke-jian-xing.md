@@ -10,11 +10,13 @@
 
 **加锁的含义不仅局限于互斥行为，还包括内存可见性。**
 
-<figure><img src="../../../.gitbook/assets/epub_39980425_15.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/epub_39980425_15.jpg" alt=""><figcaption></figcaption></figure>
 
 ## volatile 变量
 
 当把变量声明为 volatile 类型后，编译器与运行时都会注意到这个变量是共享的，因此不会将变量上的操作与其他内存操作一起重排序。**volatile 变量不会被缓存在寄存器或者其他处理器不可见的地址，因此在读取 volatile 类型的变量时总会返回最新写入的值。**
+
+> <mark style="color:blue;">**当数组引用被声明为 volatile 时，只有引用而不是数组本身具有 volatile 语义。**</mark>
 
 {% hint style="info" %}
 ## <mark style="color:blue;">提示</mark>
