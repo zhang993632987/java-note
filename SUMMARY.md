@@ -90,4 +90,4 @@
 * [零拷贝](group-1/ling-kao-bei.md)
 * [Java中的锁优化技术](group-1/java-zhong-de-suo-you-hua-ji-shu.md)
 * [Arthas](group-1/arthas.md)
-* [Thread.sleep()、Object.wait()、Condition.await()、LockSupport.park()的区别](group-1/thread.sleepobject.waitcondition.awaitlocksupport.park-de-qu-bie.md)
+* [Thread.sleep()、Object.wait()、Condition.await()、LockSupport.park()](group-1/thread.sleep-object.wait-condition.await-locksupport.park.md)
