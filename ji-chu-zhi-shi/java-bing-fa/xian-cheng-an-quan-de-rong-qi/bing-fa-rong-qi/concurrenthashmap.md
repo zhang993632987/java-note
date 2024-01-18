@@ -1,5 +1,7 @@
 # ConcurrentHashMap
 
+> 数组 + 链表 + 红黑树，CAS
+
 **ConcurrentHashMap**使用一种**粒度更细的加锁机制**来实现更大程度的共享，这种机制称为<mark style="color:blue;">**分段锁（Lock Striping），**</mark>在这种机制中：
 
 * 任意数量的读取线程可以并发地访问Map
@@ -123,5 +125,20 @@ ConcurrentHashMap返回的迭代器具有<mark style="color:blue;">**弱一致�
         CounterCell(long x) { value = x; }
     }
 </code></pre>
+
+</details>
+
+<details>
+
+<summary><mark style="color:purple;"><strong>JDK1.7 实现</strong></mark></summary>
+
+在 JDK1.5\~1.7 版本，Java 使用了**分段锁**机制实现 ConcurrentHashMap。
+
+* ConcurrentHashMap 在对象中保存了一个 Segment 数组，从而整个 Hash 表划分为多个分段；
+* 而每个Segment元素，它通过继承 ReentrantLock 来进行加锁，所以每次需要加锁的操作锁住的是一个 segment，这样只要保证每个 Segment 是线程安全的，也就实现了全局的线程安全；
+
+在执行 put 操作时首先根据 hash 算法定位到元素属于哪个 Segment，然后对该 Segment 加锁即可。Segment 数量默认是 16，理论上，这个时候，最多可以同时支持 16 个线程并发写，只要它们的操作分别分布在不同的 Segment 上。
+
+![](../../../../.gitbook/assets/java-thread-x-concurrent-hashmap-1.png)
 
 </details>
