@@ -40,7 +40,7 @@ void release() {
 1. 首先，同步器判断当前状态是否允许获得操作，如果是，则允许线程执行，否则获取操作将阻塞或失败。这种判断是由同步器的语义决定的。
 2. 其次，就是更新同步器的状态，获取同步器的某个线程可能会对其他线程能否也获取该同步器造成影响。
 
-> <mark style="color:blue;">**如果某个同步器支持独占的获取操作，那么需要实现一些保护方法，包括tryAcquire、tryRelease和isHeldExclusively等**</mark>，而<mark style="color:blue;">**对于支持共享获取的同步器，则应该实现tryAcquireShared和tryReleaseShared等方法。**</mark>AQS中的accuire、acquireShared、release和releaseShared等方法都将调用这些方法在子类中带有前缀try的版本来判断某个操作是否能执行。
+> <mark style="color:blue;">**如果某个同步器支持独占的获取操作，那么需要实现一些保护方法，包括tryAcquire、tryRelease和isHeldExclusively等**</mark>，而<mark style="color:blue;">**对于支持共享获取的同步器，则应该实现tryAcquireShared和tryReleaseShared等方法。**</mark>AQS中的acquire、acquireShared、release和releaseShared等方法都将调用这些方法在子类中带有前缀try的版本来判断某个操作是否能执行。
 >
 > 在同步器的子类中，可以根据其获取操作和释放操作的语义，使用getState、setState以及compareAndSetState来检查和更新状态，并通过返回的状态值来告知基类“获取”或“释放”同步器的操作是否成功。
 >
