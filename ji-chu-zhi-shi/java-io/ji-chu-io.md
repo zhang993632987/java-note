@@ -1,6 +1,6 @@
 # 基础IO
 
-在整个**Java.io包**中最重要的是 5 个类和 1 个接口：
+在整个 **Java.io 包**中最重要的是 5 个类和 1 个接口：
 
 * 5 个类指的是 **File**、**OutputStream**、**InputStream**、**Writer**、**Reader**
 * 1 个接口指的是 **Serializable**
@@ -73,7 +73,7 @@
 
 <details>
 
-<summary>文件</summary>
+<summary><mark style="color:purple;">文件</mark></summary>
 
 * **FileInputStream**
 * **FileOutputStream**
@@ -84,7 +84,7 @@
 
 <details>
 
-<summary>数组</summary>
+<summary><mark style="color:purple;">数组</mark></summary>
 
 * **ByteArrayInputStream**
 * **ByteArrayOutputStream**
@@ -95,7 +95,7 @@
 
 <details>
 
-<summary>管道</summary>
+<summary><mark style="color:purple;">管道</mark></summary>
 
 * **PipedInputStream**
 * **PipedOutputStream**
@@ -106,7 +106,7 @@
 
 <details>
 
-<summary>基本数据类型</summary>
+<summary><mark style="color:purple;">基本数据类型</mark></summary>
 
 * **DataInputStream**
 * **DataOutputStream**
@@ -117,7 +117,7 @@
 
 <details>
 
-<summary>缓冲操作</summary>
+<summary><mark style="color:purple;">缓冲操作</mark></summary>
 
 * **BufferedInputStream**
 * **BufferedOutputStream**
@@ -129,7 +129,7 @@
 
 <details>
 
-<summary>打印</summary>
+<summary><mark style="color:purple;">打印</mark></summary>
 
 * **PrintStream**
 * **PrintWriter**
@@ -138,7 +138,7 @@
 
 <details>
 
-<summary>序列化与反序列化</summary>
+<summary><mark style="color:purple;">序列化与反序列化</mark></summary>
 
 * **ObjectInputStream**
 * **ObjectOutputStream**
@@ -147,7 +147,7 @@
 
 <details>
 
-<summary>转换</summary>
+<summary><mark style="color:purple;">转换</mark></summary>
 
 * **InputStreamReader**
 * **OutputStreamWriter**

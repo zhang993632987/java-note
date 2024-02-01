@@ -124,10 +124,9 @@ private void set(ThreadLocal&#x3C;?> key, Object value) {
 1. ThreadLocal\<?> k: 一个对 ThreadLocal 对象的弱引用，通过这个引用，可以获取到ThreadLocal 对象本身。
 2. Object v: 与 ThreadLocal 关联的值。
 
-**这里使用了WeakReference，是为了防止内存泄漏：**
+**这里使用了 WeakReference，是为了防止内存泄漏：**
 
-* **如果只使用强引用，当ThreadLocal没有被外部引用时，ThreadLocalMap中的Entry对象可能会一直存在，导致内存泄漏。**
-* **通过使用弱引用，一旦ThreadLocal被垃圾回收，与之相关的Entry也会被回收。使用弱引用可以防止长期存在的线程（通常使用了线程池）导致ThreadLocal无法回收造成内存泄漏。**
+* **如果只使用强引用，当 ThreadLocal 没有被外部引用时，ThreadLocalMap 中的 Entry 对象可能会一直存在，导致内存泄漏。**
+* **通过使用弱引用，一旦 ThreadLocal 被垃圾回收，与之相关的 Entry 也会被回收。使用弱引用可以防止长期存在的线程（通常使用了线程池）导致 ThreadLocal 无法回收造成内存泄漏。**
 
 </details>
-

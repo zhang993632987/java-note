@@ -1,10 +1,10 @@
 # CompletionService
 
-如果向Executor提交了一组计算任务，并且希望在计算完成后获得结果，可以使用**CompletionService**来完成。
+如果向 Executor 提交了一组计算任务，并且希望在计算完成后获得结果，可以使用 **CompletionService** 来完成。
 
-**CompletionService将Executor和BlockingQueue的功能融合在一起**。可以将Callable任务提交给它来执行，然后使用类似于队列操作的take和poll等方法来获得已完成的结果，而这些结果会在完成时将被封装为Future。
+**CompletionService 将 Executor 和 BlockingQueue 的功能融合在一起**。可以将 Callable 任务提交给它来执行，然后使用类似于队列操作的 take 和 poll 等方法来获得已完成的结果，而这些结果会在完成时将被封装为 Future。
 
-**ExecutorCompletionService实现了CompletionService，并将计算部分委托给一个Executor。**
+**ExecutorCompletionService 实现了 CompletionService，并将计算部分委托给一个 Executor。**
 
 <details>
 
@@ -122,8 +122,8 @@ public class FutureTask<V> implements RunnableFuture<V> {
 
 </details>
 
-ExecutorCompletionService的实现非常简单：
+ExecutorCompletionService 的实现非常简单：
 
-* 在构造函数中创建一个**BlockingQueue**来**保存计算完成的结果**。
-* **当计算完成时，调用FutureTask中的done方法**。
-* 当提交某个任务时，该任务将首先包装为一个**QueueingFuture**，这是FutureTask的一个子类，然后再改写子类的**done方法**，并**将结果放入BlockingQueue中**。
+* 在构造函数中创建一个 **BlockingQueue** 来**保存计算完成的结果**。
+* **当计算完成时，调用 FutureTask 中的 done 方法**。
+* 当提交某个任务时，该任务将首先包装为一个 **QueueingFuture**，这是 FutureTask 的一个子类，然后再改写子类的 **done 方法**，并**将结果放入 BlockingQueue 中**。

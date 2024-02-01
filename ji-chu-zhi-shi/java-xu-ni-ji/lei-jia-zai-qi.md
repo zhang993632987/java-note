@@ -34,7 +34,7 @@
 
 ## 双亲委派模型
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 上图展示的各种类加载器之间的层次关系被称为类加载器的**“双亲委派模型（Parents Delegation Model）”**。**双亲委派模型要求除了顶层的启动类加载器外，其余的类加载器都应有自己的父类加载器。**不过**这里类加载器之间的父子关系一般不是以继承（Inheritance）的关系来实现的**，**而是通常使用组合（Composition）关系来复用父加载器的代码。**
 
