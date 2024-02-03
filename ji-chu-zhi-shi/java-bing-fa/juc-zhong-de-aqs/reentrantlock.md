@@ -1,8 +1,12 @@
 # ReentrantLock
 
-ReentrantLock只支持独占方式的获取操作，因此它实现了**tryAcquire、tryRelease和isHeldExclusively。**
+ReentrantLock 只支持独占方式的获取操作，因此它实现了 **tryAcquire、tryRelease 和isHeldExclusively。**
 
-<mark style="color:blue;">**ReentrantLock将同步状态用于保存锁获取操作的次数**</mark>，并且**还维护一个owner变量来保存当前所有者线程的标识符**，只有在当前线程刚刚获取到锁，或者正要释放锁的时候，才会修改这个变量。
+<mark style="color:blue;">**ReentrantLock 将同步状态用于保存锁获取操作的次数**</mark>，并且**还维护一个 owner 变量来保存当前所有者线程的标识符**，只有在当前线程刚刚获取到锁，或者正要释放锁的时候，才会修改这个变量。
+
+<details>
+
+<summary><mark style="color:purple;">ReentrantLock</mark></summary>
 
 ```java
   protected final boolean tryAcquire(int acquires) {
@@ -43,3 +47,5 @@ ReentrantLock只支持独占方式的获取操作，因此它实现了**tryAcqui
         return getExclusiveOwnerThread() == Thread.currentThread();
     }
 ```
+
+</details>

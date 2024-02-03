@@ -53,7 +53,7 @@
   * [条件队列](ji-chu-zhi-shi/java-bing-fa/tiao-jian-dui-lie/README.md)
     * [内置条件队列](ji-chu-zhi-shi/java-bing-fa/tiao-jian-dui-lie/nei-zhi-tiao-jian-dui-lie.md)
     * [显式的Condition对象](ji-chu-zhi-shi/java-bing-fa/tiao-jian-dui-lie/xian-shi-de-condition-dui-xiang.md)
-  * [JUC中的AQS](ji-chu-zhi-shi/java-bing-fa/juc-zhong-de-aqs/README.md)
+  * [JUC 中的 AQS](ji-chu-zhi-shi/java-bing-fa/juc-zhong-de-aqs/README.md)
     * [AbstractQueuedSynchronizer](ji-chu-zhi-shi/java-bing-fa/juc-zhong-de-aqs/abstractqueuedsynchronizer.md)
     * [ReentrantLock](ji-chu-zhi-shi/java-bing-fa/juc-zhong-de-aqs/reentrantlock.md)
     * [ReentrantReadWriteLock](ji-chu-zhi-shi/java-bing-fa/juc-zhong-de-aqs/reentrantreadwritelock.md)
