@@ -11,7 +11,7 @@ Java 内存模型规定了**所有的变量都存储在**<mark style="color:blue
 
 线程、主内存、工作内存三者的交互关系如图所示：
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 > **根据《Java 虚拟机规范》的约定，volatile 变量依然有工作内存的拷贝，但是由于它特殊的操作顺序性规定，所以看起来如同直接在主内存中读写访问一般。**
 
