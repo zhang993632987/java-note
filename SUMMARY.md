@@ -62,7 +62,7 @@
   * [原子变量](ji-chu-zhi-shi/java-bing-fa/yuan-zi-bian-liang/README.md)
     * [CAS](ji-chu-zhi-shi/java-bing-fa/yuan-zi-bian-liang/cas.md)
     * [原子变量类](ji-chu-zhi-shi/java-bing-fa/yuan-zi-bian-liang/yuan-zi-bian-liang-lei.md)
-    * [ABA问题](ji-chu-zhi-shi/java-bing-fa/yuan-zi-bian-liang/aba-wen-ti.md)
+    * [ABA 问题](ji-chu-zhi-shi/java-bing-fa/yuan-zi-bian-liang/aba-wen-ti.md)
     * [非阻塞算法](ji-chu-zhi-shi/java-bing-fa/yuan-zi-bian-liang/fei-zu-sai-suan-fa/README.md)
       * [非阻塞的栈](ji-chu-zhi-shi/java-bing-fa/yuan-zi-bian-liang/fei-zu-sai-suan-fa/fei-zu-sai-de-zhan.md)
       * [非阻塞的链表（X）](ji-chu-zhi-shi/java-bing-fa/yuan-zi-bian-liang/fei-zu-sai-suan-fa/fei-zu-sai-de-lian-biao-x.md)
