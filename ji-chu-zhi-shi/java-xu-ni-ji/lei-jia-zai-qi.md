@@ -17,11 +17,11 @@
 * 一种是启动类加载器（Bootstrap ClassLoader），这个类加载器使用 C++ 语言实现，是虚拟机自身的一部分；
 * 另一种就是所有其他的类加载器，这些类加载器都由 Java 语言实现，独立于虚拟机外部，并且全都继承自抽象类 java.lang.ClassLoader。
 
-从Java开发人员的角度来看，绝大部分 Java 程序都会使用到以下 3 种系统提供的类加载器：
+从 Java 开发人员的角度来看，绝大部分 Java 程序都会使用到以下 3 种系统提供的类加载器：
 
 * <mark style="color:blue;">**启动类加载器（Bootstrap ClassLoader）**</mark>
-  * 这个类加载器负责加载存放在 **\<JAVA\_HOME>\lib 目录**，或者被 **-Xbootclasspath 参数**所指定的路径中存放的，而且是Java虚拟机能够识别的（按照文件名识别，如 rt.jar、tools.jar，名字不符合的类库即使放在 lib 目录中也不会被加载）类库加载到虚拟机的内存中。
-  * **启动类加载器无法被 Java 程序直接引用**，**用户在编写自定义类加载器时，如果需要把加载请求委派给引导类加载器去处理，那直接使用 null 代替即可。**
+  * 这个类加载器负责加载存放在 **\<JAVA\_HOME>\lib 目录**，或者被 **-Xbootclasspath 参数**所指定的路径中存放的，而且是 Java 虚拟机能够识别的（按照文件名识别，如 rt.jar、tools.jar，名字不符合的类库即使放在 lib 目录中也不会被加载）类库加载到虚拟机的内存中。
+  * **启动类加载器无法被 Java 程序直接引用**，**用户在编写自定义类加载器时，如果需要把加载请求委派给启动类加载器去处理，那直接使用 null 代替即可。**
 * <mark style="color:blue;">**扩展类加载器（Extension Class Loader）**</mark>
   * 这个类加载器是在类 sun.misc.Launcher$**ExtClassLoader** 中以 Java 代码的形式实现的。
   * 它负责加载 **\<JAVA\_HOME>\lib\ext** 目录中，或者被 **java.ext.dirs** 系统变量所指定的路径中所有的类库。
@@ -34,11 +34,11 @@
 
 ## 双亲委派模型
 
-<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt="" width="476"><figcaption></figcaption></figure>
 
 上图展示的各种类加载器之间的层次关系被称为类加载器的**“双亲委派模型（Parents Delegation Model）”**。**双亲委派模型要求除了顶层的启动类加载器外，其余的类加载器都应有自己的父类加载器。**不过**这里类加载器之间的父子关系一般不是以继承（Inheritance）的关系来实现的**，**而是通常使用组合（Composition）关系来复用父加载器的代码。**
 
-> 类加载器的双亲委派模型在 JDK 1.2 时期被引入，并被广泛应用于此后几乎所有的 Java 程序中，但它**并不是一个具有强制性约束力的模型，而是Java设计者们推荐给开发者的一种类加载器实现的最佳实践。**
+> 类加载器的双亲委派模型在 JDK 1.2 时期被引入，并被广泛应用于此后几乎所有的 Java 程序中，但它**并不是一个具有强制性约束力的模型，而是 Java 设计者们推荐给开发者的一种类加载器实现的最佳实践。**
 
 双亲委派模型的工作过程是：<mark style="color:blue;">**如果一个类加载器收到了类加载的请求，它首先不会自己去尝试加载这个类，而是把这个请求委派给父类加载器去完成，每一个层次的类加载器都是如此。因此所有的加载请求最终都应该传送到最顶层的启动类加载器中，只有当父加载器反馈自己无法完成这个加载请求（它的搜索范围中没有找到所需的类）时，子加载器才会尝试自己去完成加载。**</mark>
 
@@ -46,7 +46,7 @@
 
 <details>
 
-<summary><mark style="color:purple;">双亲委派模型的实现——loadClass方法</mark></summary>
+<summary><mark style="color:purple;">双亲委派模型的实现——loadClass 方法</mark></summary>
 
 ```java
 protected synchronized Class<?> loadClass(String name, 
@@ -89,13 +89,13 @@ protected synchronized Class<?> loadClass(String name,
 
 ### JDK 1.2 之前的遗留代码
 
-由于双亲委派模型在 JDK 1.2 之后才被引入，但是类加载器的概念和抽象类 java.lang.ClassLoader 则在 Java 的第一个版本中就已经存在，面对已经存在的用户自定义类加载器的代码，Java 设计者们引入双亲委派模型时不得不做出一些妥协，**为了兼容这些已有代码，无法再以技术手段避免 loadClass() 被子类覆盖的可能性，只能在 JDK 1.2 之后的 java.lang.ClassLoader 中添加一个新的 protected 方法 findClass()，并引导用户编写的类加载逻辑时尽可能去重写这个方法，而不是在 loadClass() 中编写代码。**
+由于双亲委派模型在 JDK 1.2 之后才被引入，但是类加载器的概念和抽象类 java.lang.ClassLoader 则在 Java 的第一个版本中就已经存在，面对已经存在的用户自定义类加载器的代码，Java 设计者们引入双亲委派模型时不得不做出一些妥协，**为了兼容这些已有代码，无法再以技术手段避免 loadClass() 被子类覆盖的可能性，只能在 JDK 1.2 之后的 java.lang.ClassLoader 中添加一个新的 protected 方法 findClass()，并引导用户在编写类加载逻辑时尽可能去重写这个方法，而不是在 loadClass() 中编写代码。**
 
 > loadClass() 方法，双亲委派的具体逻辑就实现在这里面，按照 loadClass() 方法的逻辑，如果父类加载失败，会自动调用自己的 findClass() 方法来完成加载，这样既不影响用户按照自己的意愿去加载类，又可以保证新写出来的类加载器是符合双亲委派规则的。
 
-### JNDI服务
+### JNDI 服务
 
-JNDI 服务现在已经是 Java 的标准服务，它的代码**由启动类加载器来完成加载**（在JDK 1.3时加入到rt.jar的）。
+JNDI 服务现在已经是 Java 的标准服务，它的代码**由启动类加载器来完成加载**（在 JDK 1.3 时加入到 rt.jar 的）。
 
 但 **JNDI 存在的目的就是对资源进行查找和集中管理，它需要调用由其他厂商实现并部署在应用程序的ClassPath 下的 JNDI 服务提供者接口（Service Provider Interface，SPI）的代码**，现在问题来了，**启动类加载器是绝不可能认识、加载这些代码的**，那该怎么办？
 
@@ -103,8 +103,8 @@ JNDI 服务现在已经是 Java 的标准服务，它的代码**由启动类加�
 
 **JNDI 服务使用这个线程上下文类加载器去加载所需的 SPI 服务代码，这是一种父类加载器去请求子类加载器完成类加载的行为**，这种行为实际上是打通了双亲委派模型的层次结构来逆向使用类加载器。Java 中涉及 SPI 的加载基本上都采用这种方式来完成，例如 JNDI、JDBC、JCE、JAXB 和 JBI 等。
 
-> 不过，当 SPI 的服务提供者多于一个的时候，代码就只能根据具体提供者的类型来硬编码判断，为了消除这种极不优雅的实现方式，**在 JDK 6 时，JDK提供了 java.util.ServiceLoader 类，以META-INF/services 中的配置信息，辅以责任链模式，这才算是给 SPI 的加载提供了一种相对合理的解决方案。**
+> 不过，当 SPI 的服务提供者多于一个的时候，代码就只能根据具体提供者的类型来硬编码判断，为了消除这种极不优雅的实现方式，**在 JDK 6 时，JDK 提供了 java.util.ServiceLoader 类，以 META-INF/services 中的配置信息，辅以责任链模式，这才算是给 SPI 的加载提供了一种相对合理的解决方案。**
 
 ### OSGi
 
-OSGi 实现模块化热部署的关键是它自定义的类加载器机制的实现，**每一个程序模块（OSGi 中称为Bundle）都有一个自己的类加载器，当需要更换一个 Bundle 时，就把 Bundle 连同类加载器一起换掉以实现代码的热替换。**在OSGi环境下，类加载器不再双亲委派模型推荐的树状结构，而是进一步发展为更加复杂的网状结构。
+OSGi 实现模块化热部署的关键是它自定义的类加载器机制的实现，**每一个程序模块（OSGi 中称为Bundle）都有一个自己的类加载器，当需要更换一个 Bundle 时，就把 Bundle 连同类加载器一起换掉以实现代码的热替换。**在 OSGi 环境下，类加载器不再是双亲委派模型推荐的树状结构，而是进一步发展为更加复杂的网状结构。

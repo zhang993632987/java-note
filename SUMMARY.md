@@ -70,14 +70,21 @@
   * [JVM 的运行机制](ji-chu-zhi-shi/java-xu-ni-ji/jvm-de-yun-hang-ji-zhi.md)
   * [类加载器](ji-chu-zhi-shi/java-xu-ni-ji/lei-jia-zai-qi.md)
   * [运行时数据区](ji-chu-zhi-shi/java-xu-ni-ji/yun-hang-shi-shu-ju-qu/README.md)
-    * [JVM的内存区域](ji-chu-zhi-shi/java-xu-ni-ji/yun-hang-shi-shu-ju-qu/jvm-de-nei-cun-qu-yu.md)
+    * [JVM 的内存区域](ji-chu-zhi-shi/java-xu-ni-ji/yun-hang-shi-shu-ju-qu/jvm-de-nei-cun-qu-yu.md)
     * [永久代与元空间](ji-chu-zhi-shi/java-xu-ni-ji/yun-hang-shi-shu-ju-qu/yong-jiu-dai-yu-yuan-kong-jian.md)
     * [OutOfMemoryError](ji-chu-zhi-shi/java-xu-ni-ji/yun-hang-shi-shu-ju-qu/outofmemoryerror.md)
   * [Java 中的 4 种引用类型](ji-chu-zhi-shi/java-xu-ni-ji/java-zhong-de-4-zhong-yin-yong-lei-xing.md)
   * [垃圾收集（GC）](ji-chu-zhi-shi/java-xu-ni-ji/la-ji-shou-ji-gc/README.md)
     * [如何确定垃圾](ji-chu-zhi-shi/java-xu-ni-ji/la-ji-shou-ji-gc/ru-he-que-ding-la-ji.md)
     * [垃圾回收算法](ji-chu-zhi-shi/java-xu-ni-ji/la-ji-shou-ji-gc/la-ji-hui-shou-suan-fa.md)
-    * [垃圾收集器](ji-chu-zhi-shi/java-xu-ni-ji/la-ji-shou-ji-gc/la-ji-shou-ji-qi.md)
+    * [垃圾收集器](ji-chu-zhi-shi/java-xu-ni-ji/la-ji-shou-ji-gc/la-ji-shou-ji-qi/README.md)
+      * [Serial 收集器](ji-chu-zhi-shi/java-xu-ni-ji/la-ji-shou-ji-gc/la-ji-shou-ji-qi/serial-shou-ji-qi.md)
+      * [ParNew 收集器](ji-chu-zhi-shi/java-xu-ni-ji/la-ji-shou-ji-gc/la-ji-shou-ji-qi/parnew-shou-ji-qi.md)
+      * [Parallel Scavenge 收集器](ji-chu-zhi-shi/java-xu-ni-ji/la-ji-shou-ji-gc/la-ji-shou-ji-qi/parallel-scavenge-shou-ji-qi.md)
+      * [Serial Old 收集器](ji-chu-zhi-shi/java-xu-ni-ji/la-ji-shou-ji-gc/la-ji-shou-ji-qi/serial-old-shou-ji-qi.md)
+      * [Parallel Old 收集器](ji-chu-zhi-shi/java-xu-ni-ji/la-ji-shou-ji-gc/la-ji-shou-ji-qi/parallel-old-shou-ji-qi.md)
+      * [CMS 收集器](ji-chu-zhi-shi/java-xu-ni-ji/la-ji-shou-ji-gc/la-ji-shou-ji-qi/cms-shou-ji-qi.md)
+      * [Garbage First 收集器](ji-chu-zhi-shi/java-xu-ni-ji/la-ji-shou-ji-gc/la-ji-shou-ji-qi/garbage-first-shou-ji-qi.md)
 
 ## Group 1
 
