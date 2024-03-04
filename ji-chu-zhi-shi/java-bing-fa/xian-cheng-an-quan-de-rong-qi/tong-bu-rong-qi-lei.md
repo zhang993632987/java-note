@@ -24,7 +24,7 @@
 
 <summary><mark style="color:purple;">Vector</mark></summary>
 
-**在Vector中的modCount类似于“代”的概念，任何修改操作都会产生一个modCount自增，而modCount的值并不含有元素数量的含义。**
+**在 Vector 中的 modCount 类似于“代”的概念，任何修改操作都会产生一个 modCount 自增，而 modCount 的值并不含有元素数量的含义。**
 
 ```java
 public class Vector<E> {

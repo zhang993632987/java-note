@@ -19,7 +19,7 @@ ConcurrentHashMap 返回的迭代器具有<mark style="color:blue;">**弱一致�
 {% hint style="warning" %}
 ## <mark style="color:orange;">注意</mark>
 
-对于一些**需要在整个 Map 上进行计算的方法**，例如 size 和 isEmpty，**这些方法的语义被略微减弱了以反映容器的并发特性。由于size返回的结果在计算时可能已经过期了，它实际上只是一个估计值，因此**<mark style="color:orange;">**允许 size 返回一个近似值而不是一个精确值**</mark>**。**
+对于一些**需要在整个 Map 上进行计算的方法**，例如 size 和 isEmpty，**这些方法的语义被略微减弱了以反映容器的并发特性。由于 size 返回的结果在计算时可能已经过期了，它实际上只是一个估计值，因此**<mark style="color:orange;">**允许 size 返回一个近似值而不是一个精确值**</mark>**。**
 
 虽然这看上去有些令人不安，但**事实上 size 和 isEmpty 这样的方法在并发环境下的用处很小，因为它们的返回值总在不断变化**。因此，这些操作的需求被弱化了，以换取对其他更重要操作的性能优化，包括 get、put、containsKey 和 remove 等。
 {% endhint %}
