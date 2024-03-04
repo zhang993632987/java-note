@@ -2,7 +2,7 @@
 
 ReadWriteLock 接口表示存在两个锁：一个读锁和一个写锁。
 
-<mark style="color:blue;">**在基于 AQS 实现的ReentrantReadWriteLock 中，单个 AQS 子类将同时管理读取加锁和写入加锁。**</mark>
+<mark style="color:blue;">**在基于 AQS 实现的 ReentrantReadWriteLock 中，单个 AQS 子类将同时管理读取加锁和写入加锁。**</mark>
 
 **ReentrantReadWriteLock 使用了一个 16 位的状态来表示写入锁的计数**，并且**使用了另一个 16 位的状态来表示读取锁的计数**。**在读取锁上的操作将使用共享的获取方法与释放方法，在写入锁上的操作将使用独占的获取方法与释放方法。**
 

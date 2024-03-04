@@ -3,7 +3,7 @@
 Java 6 增加了两种容器类型，**Deque**（发音为“deck”）和 **BlockingDeque**，它们分别对 **Queue** 和 **BlockingQueue** 进行了扩展。
 
 * Deque 是一个**双端队列**，实现了在**队列头**和**队列尾**的高效插入和移除。
-* 具体实现包括 **ArrayDeque** 和 的**LinkedBlockingDeque**。
+* 具体实现包括 **ArrayDeque** 和 **LinkedBlockingDeque**。
 
 双端队列适用于工作密取（Work Stealing）：在生产者-消费者设计中，所有消费者有一个共享的工作队列，而<mark style="color:blue;">**在工作密取设计中，每个消费者都有各自的双端队列**</mark><mark style="color:blue;">。</mark><mark style="color:blue;">**如果一个消费者完成了自己双端队列中的全部工作，那么它可以从其他消费者双端队列末尾秘密地获取工作。**</mark>
 
