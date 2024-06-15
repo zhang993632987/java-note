@@ -1,7 +1,7 @@
 # Java 语言的特点
 
 1. Java 为纯<mark style="color:blue;">**面向对象**</mark>的语言。
-2. 具有<mark style="color:blue;">**平台无关**</mark>性。编译器把 Java 代码编译成平台无关的中间代码，然后在 JVM 上运行
+2. 具有<mark style="color:blue;">**平台无关**</mark>性。编译器把 Java 代码编译成平台无关的中间代码，然后在 JVM 上运行。
 3. Java 程序是通过解释器进行<mark style="color:blue;">**解释执行**</mark>的，但部分商用虚拟机为了提高热点代码的执行效率，会利用<mark style="color:blue;">**即时编译**</mark>器将代码编译成平台无关的机器码，并进行各种优化。
 4. Java 提供了很多<mark style="color:blue;">**内置类库**</mark>。如对多线程的支持，对网络通信的支持，最重要的一点是提供了垃圾回收器。
 5. Java 具有较好的<mark style="color:blue;">**安全性**</mark>和<mark style="color:blue;">**健壮性**</mark>。Java 提供了异常处理和垃圾回收机制，去除了 C++ 中难以理解的指针特性。
