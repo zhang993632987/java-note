@@ -2,7 +2,7 @@
 
 Java NIO 的实现主要涉及三大核心内容：<mark style="color:blue;">**Selector（选择器）**</mark>、<mark style="color:blue;">**Channel（通道）**</mark>和 <mark style="color:blue;">**Buffer（缓冲区）**</mark>。
 
-* **Selector 用于监听多个 Channel 的事件**，比如连接打开或数据到达，因此，一个线程可以实现对多个数据 Channel 进行管理。
+* **Selector 用于监听多个 Channel 的事件**，比如连接打开或数据到达，因此，一个线程可以实现对多个 Channel 进行管理。
 * 传统 I/O 基于数据流进行 I/O 读写操作；而 **Java NIO 基于 Channel 和 Buffer 进行 I/O 读写操作**，并且**数据总是被从 Channel 读取到 Buffer 中，或者从 Buffer 写入 Channel 中**。
 
 {% hint style="success" %}
@@ -14,11 +14,11 @@ Java NIO 和传统 I/O 的最大区别如下：
 
 ## Channel
 
-<mark style="color:blue;">**Channel 和 I/O 中的 Stream（流）类似**</mark>，只不过 Stream 是单向的（例如 InputStream、OutputStream），而 **Channel 是双向的，既可以用来进行读操作，也可以用来进行写操作**。
+<mark style="color:blue;">**Channel 和 I/O 中的 Stream（流）类似**</mark>，只不过 Stream 是单向的，而 **Channel 是双向的，既可以用来进行读操作，也可以用来进行写操作**。
 
 NIO 中 Channel 的主要实现有：
 
-* **FileChannel（文件的I/O）**
+* **FileChannel（文件的 I/O）**
 * **DatagramChannel（UDP）**
 * **SocketChannel（TCP）**
 * **ServerSocketChannel（Socker Server）**
@@ -37,7 +37,7 @@ NIO 中 Channel 的主要实现有：
 {% hint style="success" %}
 在 NIO 中，Buffer 是一个抽象类，对不同的数据类型实现不同的 Buffer 操作。
 
-**常用的 Buffer 实现类有：ByteBuffer、IntBuffer、CharBuffer、LongBuffer、DoubleBuffer、FloatBuffer、ShortBuffer。**
+**常用的 Buffer 实现类有：ByteBuffer、ShortBuffer、IntBuffer、LongBuffer、CharBuffer、FloatBuffer、DoubleBuffer。**
 {% endhint %}
 
 ## Selector
@@ -58,11 +58,12 @@ NIO 中 Channel 的主要实现有：
 
 <summary><mark style="color:purple;">MyServer</mark></summary>
 
+{% code overflow="wrap" %}
 ```java
 public  class  MyServer  {
     private  int  size  =  1024;
     private  ServerSocketChannel  serverSocketChannel;
-    private  ByteBuffer  byteBuffer;
+    private  ByteBuffer byteBuffer;
     private  Selector  selector;
     private  int  remoteClientNum  =  0;
     public  MyServer(int  port)  {
@@ -169,6 +170,7 @@ public  class  MyServer  {
 }
 
 ```
+{% endcode %}
 
 </details>
 
