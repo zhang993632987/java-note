@@ -1,14 +1,14 @@
 # ExecutorService
 
-{% hint style="success" %}
-<mark style="color:blue;">**JVM 只有在所有（非守护）线程全部终止后才会退出。因此，如果无法正确地关闭 Executor，那么 JVM 将无法结束。**</mark>
+{% hint style="warning" %}
+<mark style="color:orange;">**JVM 只有在所有（非守护）线程全部终止后才会退出。因此，如果无法正确地关闭 Executor，那么 JVM 将无法结束。**</mark>
 {% endhint %}
 
 ExecutorService 扩展了 Executor 接口，添加了一些用于生命周期管理的方法（同时还有一些用于任务提交的便利方法）。
 
 <details>
 
-<summary><mark style="color:purple;">ExecutorService中的生命周期管理方法</mark></summary>
+<summary><mark style="color:purple;">ExecutorService 中的生命周期管理方法</mark></summary>
 
 ```java
 public interface ExecutorService extends Executor {

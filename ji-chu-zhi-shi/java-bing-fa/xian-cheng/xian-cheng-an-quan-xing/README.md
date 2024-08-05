@@ -16,8 +16,6 @@
 正确性的含义是，某个类的行为与其规范完全一致。在良好的规范中通常会定义各种**不变性条件（Invariant）**来**约束对象的状态**，以及定义各种**后验条件（Postcondition）**来**描述对象操作的结果**。
 
 {% hint style="info" %}
-## <mark style="color:blue;">提示</mark>
-
 1. **无状态对象一定是线程安全的。**
 2. **当在无状态的类中添加一个状态时，如果该状态完全由线程安全的对象来管理，那么这个类仍然是线程安全的。**
 
@@ -53,8 +51,6 @@ public class LazyInitRace {
 ## 用锁来保护状态
 
 {% hint style="warning" %}
-## <mark style="color:orange;">注意</mark>
-
 * **如果用同步来协调对某个变量的访问，那么在**<mark style="color:orange;">**访问这个变量的所有位置上都需要使用同步**</mark>。
 * **当使用锁来协调对某个变量的访问时，在**<mark style="color:orange;">**访问变量的所有位置上都要使用同一个锁**</mark>**。**
 * **对于每个包含多个变量的不变性条件，其中**<mark style="color:orange;">**涉及的所有变量都需要由同一个锁来保护**</mark>**。**

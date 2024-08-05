@@ -9,7 +9,5 @@
 * 对象是正确创建的（在对象的创建期间，this 引用没有逸出）
 
 {% hint style="info" %}
-## <mark style="color:blue;">提示</mark>
-
 **不可变对象一定是线程安全的。**
 {% endhint %}

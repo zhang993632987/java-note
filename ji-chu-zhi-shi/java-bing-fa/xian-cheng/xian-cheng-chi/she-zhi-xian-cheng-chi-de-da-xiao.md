@@ -10,8 +10,6 @@
 {% endhint %}
 
 {% hint style="warning" %}
-## <mark style="color:orange;">注意</mark>
-
 如果需要**执行不同类别的任务**，并且它们之间的**行为相差很大**，那么应该考虑<mark style="color:orange;">**使用多个线程池**</mark>，从而<mark style="color:orange;">**使每个线程池可以根据各自的工作负载来调整**</mark>。
 {% endhint %}
 

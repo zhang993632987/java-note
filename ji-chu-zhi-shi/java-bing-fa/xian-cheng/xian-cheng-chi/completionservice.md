@@ -74,7 +74,7 @@ public class ExecutorCompletionService<V> implements CompletionService<V> {
 
 <details>
 
-<summary><mark style="color:purple;">FutureTask中run方法调用了done方法</mark></summary>
+<summary><mark style="color:purple;">FutureTask 中 run 方法调用了 done 方法</mark></summary>
 
 ```java
 public class FutureTask<V> implements RunnableFuture<V> {

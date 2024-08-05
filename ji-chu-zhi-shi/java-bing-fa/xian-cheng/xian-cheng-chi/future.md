@@ -4,7 +4,7 @@
 
 <details>
 
-<summary><mark style="color:purple;">Callable接口</mark></summary>
+<summary><mark style="color:purple;">Callable 接口</mark></summary>
 
 ```java
 @FunctionalInterface
@@ -18,7 +18,7 @@ public interface Callable<V> {
 
 <details>
 
-<summary><mark style="color:purple;">Future接口</mark></summary>
+<summary><mark style="color:purple;">Future 接口</mark></summary>
 
 ```java
 public interface Future<V> {
@@ -54,7 +54,9 @@ public interface Future<V> {
 
 *   [x] <mark style="color:blue;">**ExecutorService 中的所有 submit 方法**</mark>都将**返回一个 Future**，从而将一个 Runnable 或 Callable 提交给 Executor，并得到一个 Future 用来获得任务的执行结果或者取消任务。
 
-    > **在将 Runnable 或 Callable 提交到 Executor 的过程中，包含了一个安全发布过程**，**即将 Runnable 或 Callable 从提交线程发布到最终执行任务的线程。**类似地，**在设置 Future 结果的过程中也包含了一个安全发布，即将这个结果从计算它的线程发布到任何通过 get 获得它的线程。**
+    > **在将 Runnable 或 Callable 提交到 Executor 的过程中，包含了一个安全发布过程**，**即将 Runnable 或 Callable 从提交线程发布到最终执行任务的线程。**
+    >
+    > 类似地，**在设置 Future 结果的过程中也包含了一个安全发布，即将这个结果从计算它的线程发布到任何通过 get 获得它的线程。**
 *   [x] <mark style="color:blue;">**显式地为某个指定的 Runnable 或 Callable 实例化一个 FutureTask**</mark>。
 
     <div align="left">

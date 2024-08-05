@@ -1,6 +1,6 @@
 # 状态转换
 
-<figure><img src="../../../.gitbook/assets/ace830df-9919-48ca-91b5-60b193f593d2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/ace830df-9919-48ca-91b5-60b193f593d2.png" alt="" width="563"><figcaption></figcaption></figure>
 
 Java 语言定义了 6 种线程状态，在任意一个时间点中，一个线程只能有且只有其中的一种状态，并且可以通过特定的方法在不同状态之间转换。这 6 种状态分别是：
 
@@ -11,7 +11,7 @@ Java 语言定义了 6 种线程状态，在任意一个时间点中，一个线
     > 以下方法会让线程陷入无限期的等待状态：
     >
     > * **没有设置 Timeout 参数的 Object::wait() 方法；**&#x20;
-    > * **没有设置 Timeout 参数的 Thread::join()方法；**
+    > * **没有设置 Timeout 参数的 Thread::join() 方法；**
     > * **LockSupport::park() 方法。**
 *   <mark style="color:blue;">**限期等待（Timed Waiting）**</mark>：**处于这种状态的线程也不会被分配处理器执行时间，不过无须等待被其他线程显式唤醒，在一定时间之后它们会由系统自动唤醒。**
 

@@ -19,14 +19,10 @@
 > <mark style="color:blue;">**当数组引用被声明为 volatile 时，只有引用而不是数组本身具有 volatile 语义。**</mark>
 
 {% hint style="info" %}
-## <mark style="color:blue;">提示</mark>
-
 **当线程 A 首先写入一个 volatile 变量，并且线程 B 随后读取该变量时，在写入 volatile 变量之前对 A 可见的所有变量的值，在 B 读取了 volatile 变量后，对 B 也是可见的。**
 {% endhint %}
 
 {% hint style="warning" %}
-## <mark style="color:orange;">注意</mark>
-
 **如果在代码中依赖 volatile 变量来控制状态的可见性，通常比使用锁的代码更脆弱，也更难以理解。**
 
 当且仅当满足以下所有条件时，才应该使用 volatile 变量：
@@ -38,7 +34,7 @@
 
 ## **非原子的 64 位操作**
 
-> ## 最低安全性
+> **最低安全性**
 >
 > 当线程在没有同步的情况下读取变量时，可能会得到一个失效值，但至少这个值是由之前某个线程设置的值，而不是一个随机值。这种安全性保证被称为**最低安全性（out-of-the-thin-air safety）**
 

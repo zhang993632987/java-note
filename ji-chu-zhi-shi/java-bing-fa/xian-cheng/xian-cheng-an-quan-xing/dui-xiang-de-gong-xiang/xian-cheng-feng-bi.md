@@ -121,8 +121,8 @@ private void set(ThreadLocal&#x3C;?> key, Object value) {
 
 在这里，Entry 是一个继承自 WeakReference\<ThreadLocal\<?>> 的类，它包含两个字段：
 
-1. ThreadLocal\<?> k: 一个对 ThreadLocal 对象的弱引用，通过这个引用，可以获取到ThreadLocal 对象本身。
-2. Object v: 与 ThreadLocal 关联的值。
+1. ThreadLocal\<?> k：一个对 ThreadLocal 对象的弱引用，通过这个引用，可以获取到ThreadLocal 对象本身。
+2. Object v：与 ThreadLocal 关联的值。
 
 **这里使用了 WeakReference，是为了防止内存泄漏：**
 

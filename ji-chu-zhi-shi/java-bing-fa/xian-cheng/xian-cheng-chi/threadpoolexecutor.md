@@ -34,18 +34,18 @@ public ThreadPoolExecutor(int corePoolSize,
 
 线程池的<mark style="color:blue;">**基本大小（Core Pool Size）**</mark>、<mark style="color:blue;">**最大大小（Maximum Pool Size）**</mark>以及<mark style="color:blue;">**存活时间**</mark>等因素共同负责线程的创建与销毁。
 
-* **基本大小**也就是线程池的目标大小，即**在没有任务执行时线程池的大小**，并且**只有在工作队列满了的情况下才会创建超出这个数量的线程**。
+* **基本大小**也就是线程池的目标大小，即**在没有任务执行时线程池的大小**，并且<mark style="color:orange;">**只有在工作队列满了的情况下才会创建超出这个数量的线程**</mark>。
 * 线程池的**最大大小**表示**可同时活动的线程数量的上限**。
 * 如果某个线程的空闲时间超过了存活时间，那么将被标记为可回收的，并且当线程池的当前大小超过了基本大小时，这个线程将被终止。
 
-{% hint style="success" %}
-**在创建 ThreadPoolExecutor 初期，线程并不会立即启动，而是等到有任务提交时才会启动，除非调用 prestartAllCoreThreads。**
+{% hint style="info" %}
+<mark style="color:blue;">**在创建 ThreadPoolExecutor 初期，线程并不会立即启动，而是等到有任务提交时才会启动，除非调用 prestartAllCoreThreads。**</mark>
 {% endhint %}
 
 {% hint style="success" %}
 **如果将线程池的基本大小设置为零，但没有使用 SynchronousQueue 作为其工作队列**，这种方式将产生一些奇怪的行为。
 
-**当线程池中的线程数量等于线程池的基本大小时，仅当在工作队列已满的情况下ThreadPoolExecutor 才会创建新的线程。**因此，**如果线程池的基本大小为零并且其工作队列有一定的容量**，那么当把任务提交给该线程池时，**只有当线程池的工作队列被填满后，才会开始执行任务。**
+<mark style="color:orange;">**当线程池中的线程数量等于线程池的基本大小时，仅当在工作队列已满的情况下ThreadPoolExecutor 才会创建新的线程。**</mark>因此，**如果线程池的基本大小为零并且其工作队列有一定的容量**，那么当把任务提交给该线程池时，**只有当线程池的工作队列被填满后，才会开始执行任务。**
 
 **在 Java 6 中，可以通过 allowCoreThreadTimeOut 来使线程池中的所有线程超时。**
 {% endhint %}
