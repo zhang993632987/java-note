@@ -11,7 +11,7 @@
 
 <details>
 
-<summary><mark style="color:purple;">CopyOnWriteArrayList</mark></summary>
+<summary><mark style="color:purple;"><strong>CopyOnWriteArrayList</strong></mark></summary>
 
 ```java
 // volatile 的作用是保证读操作的可见性

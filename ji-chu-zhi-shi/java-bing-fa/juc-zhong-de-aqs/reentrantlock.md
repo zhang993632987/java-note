@@ -6,7 +6,7 @@ ReentrantLock 只支持独占方式的获取操作，因此它实现了 **tryAcq
 
 <details>
 
-<summary><mark style="color:purple;">ReentrantLock</mark></summary>
+<summary><mark style="color:purple;"><strong>ReentrantLock</strong></mark></summary>
 
 ```java
   protected final boolean tryAcquire(int acquires) {

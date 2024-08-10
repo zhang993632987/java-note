@@ -13,8 +13,6 @@
 {% endhint %}
 
 {% hint style="warning" %}
-## <mark style="color:orange;">注意</mark>
-
 容器的 **hashCode、equals、containsAll**、**removeAll** 和 **retainAll** 等方法，以及把容器作为参数的构造函数，都会对容器进行迭代。
 
 <mark style="color:orange;">**所有这些间接的迭代操作都可能抛出 ConcurrentModificationException。**</mark>

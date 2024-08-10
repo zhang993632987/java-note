@@ -49,7 +49,7 @@ void stateDependentMethod() throws InterruptedException {
 
 <details>
 
-<summary><mark style="color:purple;">使用条件队列实现的有界缓存</mark></summary>
+<summary><mark style="color:purple;"><strong>使用条件队列实现的有界缓存</strong></mark></summary>
 
 ```java
 public final class BoundedBuffer<T> {

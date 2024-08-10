@@ -1,4 +1,4 @@
-# 显式的Condition对象
+# 显式的 Condition 对象
 
 正如 Lock 是一种广义的内置锁，Condition 也是一种广义的内置条件队列。一个 Condition 和一个 Lock 关联在一起，就像一个条件队列和一个内置锁相关联一样。**要创建一个 Condition，可以在相关联的 Lock 上调用 **<mark style="color:blue;">**Lock.newCondition**</mark>** 方法。**
 
@@ -10,7 +10,7 @@
 
 <details>
 
-<summary><mark style="color:purple;">示例：使用显示条件变量的有界缓存</mark></summary>
+<summary><mark style="color:purple;"><strong>示例：使用显示条件变量的有界缓存</strong></mark></summary>
 
 ```java
 public class ConditionBoundedBuffer<T> {

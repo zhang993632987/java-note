@@ -35,7 +35,5 @@ public class Thread implements Runnable {
 * **恢复中断：**有时候不能抛出 InterruptedException，例如当代码是 Runnable 的一部分时。在这些情况下，必须**捕获 InterruptedException，并通过调用当前线程上的 interrupt 方法恢复中断状态，这样在调用栈中更高层的代码将看到引发了一个中断。**
 
 {% hint style="danger" %}
-## <mark style="color:red;">警告</mark>
-
 <mark style="color:red;">**在出现 InterruptedException 时不应该做的事情是，捕获它但不做出任何响应。**</mark>**这将使调用栈上更高层的代码无法对中断采取处理措施，因为线程被中断的证据已经丢失。**
 {% endhint %}

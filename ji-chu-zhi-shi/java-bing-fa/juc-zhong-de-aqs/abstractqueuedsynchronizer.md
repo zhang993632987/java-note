@@ -41,7 +41,7 @@ void release() {
 2. 其次，就是更新同步器的状态，获取同步器的某个线程可能会对其他线程能否也获取该同步器造成影响。
 
 {% hint style="success" %}
-<mark style="color:blue;">**如果某个同步器支持独占的获取操作，那么需要实现一些保护方法，包括 tryAcquire、tryRelease 和isHeldExclusively 等**</mark>，而<mark style="color:blue;">**对于支持共享获取的同步器，则应该实现 tryAcquireShared 和tryReleaseShared 等方法。**</mark>
+<mark style="color:blue;">**如果某个同步器支持独占的获取操作，那么需要实现一些保护方法，包括 tryAcquire、tryRelease 和 isHeldExclusively 等**</mark>，而<mark style="color:blue;">**对于支持共享获取的同步器，则应该实现 tryAcquireShared 和 tryReleaseShared 等方法。**</mark>
 
 AQS 中的 acquire、acquireShared、release 和 releaseShared 等方法都将调用这些方法在子类中带有前缀 try 的版本来判断某个操作是否能执行。
 

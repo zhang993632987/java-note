@@ -1,14 +1,12 @@
-# 通过Future来实现取消
+# 通过 Future 来实现取消
 
 **Future 拥有一个 cancel 方法，该方法带有一个 boolean 类型的参数 mayInterruptIfRunning：**
 
 * 如果 **mayInterruptIfRunning 为 true** 并且任务当前**正在某个线程中运行**，那么**这个线程将被中断**。
 * 如果**这个参数为 false**，那么意味着“若任务还没有启动，就不要运行它”**。**
 
-{% hint style="info" %}
-## <mark style="color:orange;">注意</mark>
-
-**除非你清楚线程的中断策略，否则不要中断线程。**
+{% hint style="warning" %}
+<mark style="color:orange;">**除非你清楚线程的中断策略，否则不要中断线程。**</mark>
 {% endhint %}
 
 {% hint style="success" %}
