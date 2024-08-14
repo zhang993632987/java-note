@@ -1,6 +1,6 @@
 # JVM 的内存区域
 
-JVM 的内存区域分为<mark style="color:blue;">**线程私有区域**</mark><mark style="color:blue;">（</mark><mark style="color:blue;">**程序计数器、虚拟机栈、本地方法栈**</mark><mark style="color:blue;">）</mark>、<mark style="color:blue;">**线程共享区域**</mark><mark style="color:blue;">（</mark><mark style="color:blue;">**堆、方法区**</mark><mark style="color:blue;">）</mark>和<mark style="color:blue;">**直接内存**</mark>。
+运行时JVM 的内存区域分为<mark style="color:blue;">**线程私有区域**</mark><mark style="color:blue;">（</mark><mark style="color:blue;">**程序计数器、虚拟机栈、本地方法栈**</mark><mark style="color:blue;">）</mark>、<mark style="color:blue;">**线程共享区域**</mark><mark style="color:blue;">（</mark><mark style="color:blue;">**堆、方法区**</mark><mark style="color:blue;">）</mark>和<mark style="color:blue;">**直接内存**</mark>。
 
 * **线程私有区域**的生命周期与线程相同，**随线程的启动而创建，随线程的结束而销毁**。
 * **线程共享区域随虚拟机的启动而创建，随虚拟机的关闭而销毁。**
@@ -45,15 +45,19 @@ Java 堆是垃圾收集器管理的主要区域，因此很多时候也被称做
 
 根据 Java 虚拟机规范的规定，**当方法区无法满足内存分配需求时**，将抛出 OutOfMemoryError 异常。
 
-> ## <mark style="color:blue;">**运行时常量池**</mark>
->
-> **运行时常量池（Runtime Constant Pool）是方法区的一部分。**
->
-> Class 文件中除了有类的版本、字段、方法、接口等描述信息外，还有一项信息是常量池（Constant Pool Table），用于存放编译期生成的各种字面量和符号引用，这部分内容将在类加载后进入方法区的运行时常量池中存放。
->
-> **运行时常量池相对于 Class 文件常量池的一个重要特征是具备动态性，**Java 语言并不要求常量一定只有编译期才能产生，也就是并非预置入 Class 文件中常量池的内容才能进入方法区的运行时常量池，运行期间也可能将新的常量放入池中，这种特性被开发人员利用得比较多的便是 String 类的 intern() 方法。
->
-> 既然运行时常量池是方法区的一部分，自然受到方法区内存的限制，当常量池无法再申请到内存时会抛出 **OutOfMemoryError** 异常。
+<details>
+
+<summary><mark style="color:purple;"><strong>运行时常量池</strong></mark></summary>
+
+**运行时常量池（Runtime Constant Pool）是方法区的一部分。**
+
+Class 文件中除了有类的版本、字段、方法、接口等描述信息外，还有一项信息是常量池（Constant Pool Table），用于存放编译期生成的各种字面量和符号引用，这部分内容将在类加载后进入方法区的运行时常量池中存放。
+
+**运行时常量池相对于 Class 文件常量池的一个重要特征是具备动态性，**Java 语言并不要求常量一定只有编译期才能产生，也就是并非预置入 Class 文件中常量池的内容才能进入方法区的运行时常量池，运行期间也可能将新的常量放入池中，这种特性被开发人员利用得比较多的便是 String 类的 intern() 方法。
+
+既然运行时常量池是方法区的一部分，自然受到方法区内存的限制，当常量池无法再申请到内存时会抛出 **OutOfMemoryError** 异常。
+
+</details>
 
 ### **直接内存**
 

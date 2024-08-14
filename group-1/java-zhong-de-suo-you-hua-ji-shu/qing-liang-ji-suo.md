@@ -8,7 +8,7 @@
 
 <details>
 
-<summary><mark style="color:purple;">对象头</mark></summary>
+<summary><mark style="color:purple;"><strong>对象头</strong></mark></summary>
 
 HotSpot 虚拟机的对象头（Object Header）分为两部分：
 
@@ -25,7 +25,7 @@ HotSpot 虚拟机的对象头（Object Header）分为两部分：
 
 ## 轻量级锁的加锁过程
 
-在代码即将进入同步块的时候，如果此同步对象没有被锁定（锁标志位为“01”状态），虚拟机首先将**在当前线程的栈帧中建立一个名为锁记录（Lock Record）的空间，用于存储锁对象目前的Mark Word的拷贝**（官方为这份拷贝加了一个 Displaced 前缀，即 Displaced Mark Word）。
+在代码即将进入同步块的时候，如果此同步对象没有被锁定（锁标志位为“01”状态），虚拟机首先将**在当前线程的栈帧中建立一个名为锁记录（Lock Record）的空间，用于存储锁对象目前的 Mark Word 的拷贝**（官方为这份拷贝加了一个 Displaced 前缀，即 Displaced Mark Word）。
 
 然后，**虚拟机将使用 CAS 操作尝试把对象的 Mark Word 更新为指向 Lock Record 的指针。**
 
@@ -36,14 +36,12 @@ HotSpot 虚拟机的对象头（Object Header）分为两部分：
 
 ## 轻量级锁的解锁过程
 
-轻量级锁的解锁过程也同样是通过 CAS 操作来进行的，如果对象的 Mark Word 仍然指向线程的锁记录，那就**用 CAS 操作把对象当前的 Mark Word 和线程中复制的 DisplacedMark Word 替换回来：**
+轻量级锁的解锁过程也同样是通过 CAS 操作来进行的，如果对象的 Mark Word 仍然指向线程的锁记录，那就**用 CAS 操作把对象当前的 Mark Word 和线程中复制的 Displaced Mark Word 替换回来：**
 
 * 假如能够成功替换，那整个同步过程就顺利完成了；
 * 如果替换失败，则说明有其他线程尝试过获取该锁，就要在释放锁的同时，唤醒被挂起的线程。
 
 {% hint style="warning" %}
-## <mark style="color:orange;">注意</mark>
-
 **轻量级锁能提升程序同步性能的依据是“对于绝大部分的锁，在整个同步周期内都是不存在竞争的”这一经验法则。**
 
 如果没有竞争，轻量级锁便通过 CAS 操作成功避免了使用互斥量的开销；**但如果确实存在锁竞争，除了互斥量的本身开销外，还额外发生了 CAS 操作的开销。因此在有竞争的情况下，轻量级锁反而会比传统的重量级锁更慢。**

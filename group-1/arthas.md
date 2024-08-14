@@ -27,7 +27,7 @@ sm demo.MathGame *
 sm demo.MathGame print
 ```
 
-### **查看一个class类的源码信息(反编译)**
+### **查看一个 class 类的源码信息（反编译）**
 
 场景：我新修改的内容在方法内部，而上一个步骤只能看到方法，这时候可以反编译看下源码
 
@@ -47,7 +47,7 @@ watch demo.MathGame print "{params, returnObj, throwExp}" -e -x 2
 ```
 {% endcode %}
 
-**查看方法调用栈的信息**
+### **查看方法调用栈的信息**
 
 场景：我想看下某个方法的调用栈的信息?
 
@@ -59,7 +59,7 @@ stack demo.MathGame print
 
 ### **到最耗时的方法调用**
 
-场景：testMethod这个方法入口响应很慢，如何找到最耗时的子调用?
+场景：testMethod 这个方法入口响应很慢，如何找到最耗时的子调用?
 
 ```java
 # run 是 MathGame 中的一个方法
@@ -89,9 +89,9 @@ retransform demo/MathGame.class
 monitor -c 5 demo.MathGame primeFactors
 ```
 
-### **使用Idea的远程调试**
+### **使用 Idea 的远程调试**
 
-要让远程服务器运行的代码支持远程调试，则启动的时候必须加上特定的JVM参数，这些参数是：
+要让远程服务器运行的代码支持远程调试，则启动的时候必须加上特定的 JVM 参数，这些参数是：
 
 ```properties
 -Xdebug -Xrunjdwp:transport=dt_socket,suspend=n,server=y,address=127.0.0.1:5555

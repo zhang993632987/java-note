@@ -8,7 +8,7 @@
 
 <details>
 
-<summary><mark style="color:purple;">实验类</mark></summary>
+<summary><mark style="color:purple;"><strong>实验类</strong></mark></summary>
 
 ```java
 /**
@@ -65,7 +65,7 @@ Heap dump file created [22045981 bytes in 0.663 secs]
 
 <details>
 
-<summary><mark style="color:purple;">实验类</mark></summary>
+<summary><mark style="color:purple;"><strong>实验类</strong></mark></summary>
 
 ```java
 /**
@@ -106,7 +106,7 @@ Exception in thread "main" java.lang.StackOverflowError
 
 <details>
 
-<summary><mark style="color:purple;">实验类（没有32位系统）</mark></summary>
+<summary><mark style="color:purple;"><strong>实验类（没有 32 位系统）</strong></mark></summary>
 
 ```java
 /**
@@ -218,7 +218,7 @@ Exception in thread "main" java.lang.OutOfMemoryError: PermGen space
 
 <details>
 
-<summary><mark style="color:purple;">实验类</mark></summary>
+<summary><mark style="color:purple;"><strong>实验类</strong></mark></summary>
 
 ```java
 /**
